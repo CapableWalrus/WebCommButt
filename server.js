@@ -42,7 +42,7 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
 });
 
 
-io.sockets.on('connection', function (socket1) {// WebSocket Connection
+io.sockets.on('connection', function (socket) {// WebSocket Connection
     var lightvalue1 = 0; //static variable for current status
     pushButton1.watch(function (err, value) { //Watch for hardware interrupts on pushButton
         if (err) { //if an error
@@ -50,9 +50,9 @@ io.sockets.on('connection', function (socket1) {// WebSocket Connection
             return;
         }
         lightvalue1 = value;
-        socket1.emit('light1', lightvalue1); //send button status to client
+        socket.emit('light1', lightvalue1); //send button status to client
     });
-    socket1.on('light1', function (data) { //get light switch status from client
+    socket.on('light1', function (data) { //get light switch status from client
         lightvalue1 = data;
         if (lightvalue1 != LED.readSync()) { //only change LED if status has changed
             LED.writeSync(lightvalue1); //turn LED on or off
@@ -60,7 +60,7 @@ io.sockets.on('connection', function (socket1) {// WebSocket Connection
     });
 });
 
-io.sockets.on('connection', function (socket2) {// WebSocket Connection
+io.sockets.on('connection', function (socket) {// WebSocket Connection
     var lightvalue2 = 0; //static variable for current status
     pushButton2.watch(function (err, value) { //Watch for hardware interrupts on pushButton
         if (err) { //if an error
@@ -68,9 +68,9 @@ io.sockets.on('connection', function (socket2) {// WebSocket Connection
             return;
         }
         lightvalue2 = value;
-        socket2.emit('light', lightvalue2); //send button status to client
+        socket.emit('light', lightvalue2); //send button status to client
     });
-    socket2.on('light', function (data) { //get light switch status from client
+    socket.on('light', function (data) { //get light switch status from client
         lightvalue2 = data;
         if (lightvalue2 != LED.readSync()) { //only change LED if status has changed
             LED.writeSync(lightvalue2); //turn LED on or off
@@ -78,7 +78,7 @@ io.sockets.on('connection', function (socket2) {// WebSocket Connection
     });
 });
 
-io.sockets.on('connection', function (socket3) {// WebSocket Connection
+io.sockets.on('connection', function (socket) {// WebSocket Connection
     var lightvalue3 = 0; //static variable for current status
     pushButton3.watch(function (err, value) { //Watch for hardware interrupts on pushButton
         if (err) { //if an error
@@ -86,9 +86,9 @@ io.sockets.on('connection', function (socket3) {// WebSocket Connection
             return;
         }
         lightvalue3 = value;
-        socket3.emit('light', lightvalue2); //send button status to client
+        socket.emit('light', lightvalue2); //send button status to client
     });
-    socket3.on('light', function (data) { //get light switch status from client
+    socket.on('light', function (data) { //get light switch status from client
         lightvalue3 = data;
         if (lightvalue3 != LED.readSync()) { //only change LED if status has changed
             LED.writeSync(lightvalue3); //turn LED on or off
