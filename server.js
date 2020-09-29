@@ -41,7 +41,7 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
     });
 });
 
-asdf
+
 io.sockets.on('connection', function (socket1) {// WebSocket Connection
     var lightvalue1 = 0; //static variable for current status
     pushButton1.watch(function (err, value) { //Watch for hardware interrupts on pushButton
