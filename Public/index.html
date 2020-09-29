@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html> 
+﻿<!DOCTYPE html>
 <html>
 <body>
-    <!-- include socket.io client side script -->
+
     <h1>Control LED light</h1>
     <p>
         <input type="checkbox" id="light">
@@ -45,14 +45,14 @@
         window.addEventListener("load", function () { //when page loads
             var lightbox1 = document.getElementById("light1");
             lightbox1.addEventListener("change", function () { //add event listener for when checkbox changes
-                socket.emit("light1", Number(this.checked)); //send button status to server (as 1 or 0)
+                socket1.emit("light1", Number(this.checked)); //send button status to server (as 1 or 0)
             });
         });
 
-        socket.on('light1', function (data) { //get button status from client
+        socket1.on('light1', function (data) { //get button status from client
 
             document.getElementById("light1").checked = data; //change checkbox according to push button on Raspberry Pi
-            socket.emit("light1", data); //send push button status to back to server
+            socket1.emit("light1", data); //send push button status to back to server
 
         });
 
@@ -61,33 +61,33 @@
 
         //load socket for light2
         window.addEventListener("load", function () { //when page loads
-            var lightbox = document.getElementById("light");
-            lightbox.addEventListener("change", function () { //add event listener for when checkbox changes
-                socket.emit("light", Number(this.checked)); //send button status to server (as 1 or 0)
+            var lightbox2 = document.getElementById("light2");
+            lightbox2.addEventListener("change", function () { //add event listener for when checkbox changes
+                socket2.emit("light2", Number(this.checked)); //send button status to server (as 1 or 0)
             });
         });
 
-        socket.on('light', function (data) { //get button status from client
+        socket2.on('light2', function (data) { //get button status from client
 
-            document.getElementById("light").checked = data; //change checkbox according to push button on Raspberry Pi
-            socket.emit("light", data); //send push button status to back to server
+            document.getElementById("light2").checked = data; //change checkbox according to push button on Raspberry Pi
+            socket2.emit("light2", data); //send push button status to back to server
 
         });
 
 
 
-        //load socet for light3
+        //load socket for light3
         window.addEventListener("load", function () { //when page loads
-            var lightbox = document.getElementById("light");
-            lightbox.addEventListener("change", function () { //add event listener for when checkbox changes
-                socket.emit("light", Number(this.checked)); //send button status to server (as 1 or 0)
+            var lightbox3 = document.getElementById("light3");
+            lightbox3.addEventListener("change", function () { //add event listener for when checkbox changes
+                socket3.emit("light3", Number(this.checked)); //send button status to server (as 1 or 0)
             });
         });
 
-        socket.on('light', function (data) { //get button status from client
+        socket3.on('light3', function (data) { //get button status from client
 
-            document.getElementById("light").checked = data; //change checkbox according to push button on Raspberry Pi
-            socket.emit("light", data); //send push button status to back to server
+            document.getElementById("light3").checked = data; //change checkbox according to push button on Raspberry Pi
+            socket3.emit("light3", data); //send push button status to back to server
 
         });
 
