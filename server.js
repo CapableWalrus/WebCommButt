@@ -41,24 +41,7 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
     });
 });
 
-io.sockets.on('connection', function (socket) {// WebSocket Connection
-    var lightvalue = 0; //static variable for current status
-    pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton
-        if (err) { //if an error
-            console.error('There was an error', err); //output error message to console
-            return;
-        }
-        lightvalue = value;
-        socket.emit('light', lightvalue); //send button status to client
-    });
-    socket.on('light', function (data) { //get light switch status from client
-        lightvalue = data;
-        if (lightvalue != LED.readSync()) { //only change LED if status has changed
-            LED.writeSync(lightvalue); //turn LED on or off
-        }
-    });
-});
-
+asdf
 io.sockets.on('connection', function (socket1) {// WebSocket Connection
     var lightvalue1 = 0; //static variable for current status
     pushButton1.watch(function (err, value) { //Watch for hardware interrupts on pushButton
