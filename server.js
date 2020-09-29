@@ -89,9 +89,6 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
             LED.writeSync(lightvalue3); //turn LED on or off
         }
     });
-
-
-
 });
 
 process.on('SIGINT', function () { //on ctrl+c
