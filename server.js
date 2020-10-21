@@ -67,10 +67,10 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
         if (lightvalue != LED.readSync()) { //only change LED if status has changed
             LED.writeSync(lightvalue); //turn LED on or off
             if (lightvalue == true) {
-                changeColor(#FF0000)
+                changeColor(FF0000)
             }
             if (lightvalue == false) {
-                changeColor(#FFFFFF)
+                changeColor(FFFFFF)
             }
 
         }
