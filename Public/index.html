@@ -65,6 +65,13 @@
         socket.on('light2', function (data) { //get button status from client
 
             document.getElementById("light2").checked = data; //change checkbox according to push button on Raspberry Pi
+            if (data == 1) {
+                changeColor('yellow');
+            }
+            if (data == 0) {
+                changeColor('white');
+            }
+
             socket.emit("light2", data); //send push button status to back to server
 
         });
