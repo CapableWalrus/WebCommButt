@@ -23,6 +23,10 @@ function handler(req, res) { //create server
     });
 }
 
+function changeColor(color) {
+    document.body.style.background = color;
+} 
+
 io.sockets.on('connection', function (socket) {// WebSocket Connection
     var lightvalue = 0; //static variable for current status
     pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton
