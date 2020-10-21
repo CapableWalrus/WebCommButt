@@ -30,6 +30,13 @@
         socket.on('light', function (data) { //get button status from client
 
             document.getElementById("light").checked = data; //change checkbox according to push button on Raspberry Pi
+            if (data == 1) {
+                changeColor('green');
+            }
+            if (data == 0) {
+                changeColor('white');
+            }
+
             socket.emit("light", data); //send push button status to back to server
 
         
@@ -47,6 +54,10 @@
         socket.on('light1', function (data) { //get button status from client
 
             document.getElementById("light1").checked = data; //change checkbox according to push button on Raspberry Pi
+            if (data == 1) {
+                changeColor('blue');
+            }
+
             socket.emit("light1", data); //send push button status to back to server
 
         });
@@ -67,9 +78,6 @@
             document.getElementById("light2").checked = data; //change checkbox according to push button on Raspberry Pi
             if (data == 1) {
                 changeColor('yellow');
-            }
-            if (data == 0) {
-                changeColor('white');
             }
 
             socket.emit("light2", data); //send push button status to back to server
