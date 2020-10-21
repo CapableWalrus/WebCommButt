@@ -17,11 +17,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script> <!-- include socket.io client side script -->
     <script>
 
-        function changeColor(color) {
-            document.body.style.background = color;
-        } 
-
-
         var socket = io(); //load socket.io-client and connect to the host that serves the page
 
         //load socekt for light0
@@ -92,6 +87,12 @@
         });
 
 
+    </script>
+
+    <script>
+        function changeColor(color) {
+            document.body.style.background = color;
+        } 
     </script>
 
 </body>
