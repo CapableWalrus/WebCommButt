@@ -2,9 +2,9 @@ var http = require('http').createServer(handler); //require http server, and cre
 var fs = require('fs'); //require filesystem module
 var io = require('socket.io')(http) //require socket.io module and pass the http object (server)
 var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
-var LED = new Gpio(4, 'out'); //use GPIO pin 4 as output
-var pushButton = new Gpio(17, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
-var pushButton1 = new Gpio(27, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
+var LED = new Gpio(7, 'out'); //use GPIO pin 4 as output
+var pushButton = new Gpio(4, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
+var pushButton1 = new Gpio(5, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
 var pushButton2 = new Gpio(22, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
 var pushButton3 = new Gpio(23, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
 
@@ -66,6 +66,13 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
         lightvalue = data;
         if (lightvalue != LED.readSync()) { //only change LED if status has changed
             LED.writeSync(lightvalue); //turn LED on or off
+            if (lightvalue == true) {
+                changeColor(#FF0000)
+            }
+            if (lightvalue == false) {
+                changeColor(#FFFFFF)
+            }
+
         }
     });
 
